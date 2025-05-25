@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:quizz_app/router.dart';
 import 'package:quizz_app/ui/views/login_view/login_page.dart';
-import 'package:quizz_app/models/user_model/user.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {

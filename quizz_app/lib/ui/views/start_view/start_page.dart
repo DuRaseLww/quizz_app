@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quizz_app/service/media_query/media_query_service.dart';
 
 class StartView extends StatelessWidget {
   const StartView({super.key});
@@ -12,6 +13,9 @@ class StartView extends StatelessWidget {
         body: Center(
           child: Column(
             children: <Widget>[
+              SizedBox(
+                height: (AppMedia(context).height! / 3),
+              ),
               ElevatedButton(
                 onPressed: () => context.push('/categories'),
                 child: const Text('Начать'),
@@ -42,9 +46,9 @@ class StartView extends StatelessWidget {
                       .authStateChanges()
                       .listen((User? user) {
                     if (user == null) {
-                      print('User is currently signed out!');
+                      debugPrint('User is currently signed out!');
                     } else {
-                      print('User is signed in!');
+                      debugPrint('User is signed in!');
                     }
                   });
                 },

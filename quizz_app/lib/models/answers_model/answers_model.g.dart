@@ -7,19 +7,19 @@ part of 'answers_model.dart';
 // **************************************************************************
 
 _Answers _$AnswersFromJson(Map<String, dynamic> json) => _Answers(
-  answer_a: json['answer_a'] as String?,
-  answer_b: json['answer_b'] as String?,
-  answer_c: json['answer_c'] as String?,
-  answer_d: json['answer_d'] as String?,
-  answer_e: json['answer_e'] as String?,
-  answer_f: json['answer_f'] as String?,
+  answerA: json['answer_a'] as String?,
+  answerB: json['answer_b'] as String?,
+  answerC: json['answer_c'] as String?,
+  answerD: json['answer_d'] as String?,
+  answerE: json['answer_e'] as String?,
+  answerF: json['answer_f'] as String?,
 );
 
 Map<String, dynamic> _$AnswersToJson(_Answers instance) => <String, dynamic>{
-  'answer_a': instance.answer_a,
-  'answer_b': instance.answer_b,
-  'answer_c': instance.answer_c,
-  'answer_d': instance.answer_d,
-  'answer_e': instance.answer_e,
-  'answer_f': instance.answer_f,
+  'answer_a': instance.answerA,
+  'answer_b': instance.answerB,
+  'answer_c': instance.answerC,
+  'answer_d': instance.answerD,
+  'answer_e': instance.answerE,
+  'answer_f': instance.answerF,
 };

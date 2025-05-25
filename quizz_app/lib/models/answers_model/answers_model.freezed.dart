@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Answers {
 
- String? get answer_a; String? get answer_b; String? get answer_c; String? get answer_d; String? get answer_e; String? get answer_f;
+@JsonKey(name: 'answer_a') String? get answerA;@JsonKey(name: 'answer_b') String? get answerB;@JsonKey(name: 'answer_c') String? get answerC;@JsonKey(name: 'answer_d') String? get answerD;@JsonKey(name: 'answer_e') String? get answerE;@JsonKey(name: 'answer_f') String? get answerF;
 /// Create a copy of Answers
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $AnswersCopyWith<Answers> get copyWith => _$AnswersCopyWithImpl<Answers>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Answers&&(identical(other.answer_a, answer_a) || other.answer_a == answer_a)&&(identical(other.answer_b, answer_b) || other.answer_b == answer_b)&&(identical(other.answer_c, answer_c) || other.answer_c == answer_c)&&(identical(other.answer_d, answer_d) || other.answer_d == answer_d)&&(identical(other.answer_e, answer_e) || other.answer_e == answer_e)&&(identical(other.answer_f, answer_f) || other.answer_f == answer_f));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Answers&&(identical(other.answerA, answerA) || other.answerA == answerA)&&(identical(other.answerB, answerB) || other.answerB == answerB)&&(identical(other.answerC, answerC) || other.answerC == answerC)&&(identical(other.answerD, answerD) || other.answerD == answerD)&&(identical(other.answerE, answerE) || other.answerE == answerE)&&(identical(other.answerF, answerF) || other.answerF == answerF));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,answer_a,answer_b,answer_c,answer_d,answer_e,answer_f);
+int get hashCode => Object.hash(runtimeType,answerA,answerB,answerC,answerD,answerE,answerF);
 
 @override
 String toString() {
-  return 'Answers(answer_a: $answer_a, answer_b: $answer_b, answer_c: $answer_c, answer_d: $answer_d, answer_e: $answer_e, answer_f: $answer_f)';
+  return 'Answers(answerA: $answerA, answerB: $answerB, answerC: $answerC, answerD: $answerD, answerE: $answerE, answerF: $answerF)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $AnswersCopyWith<$Res>  {
   factory $AnswersCopyWith(Answers value, $Res Function(Answers) _then) = _$AnswersCopyWithImpl;
 @useResult
 $Res call({
- String? answer_a, String? answer_b, String? answer_c, String? answer_d, String? answer_e, String? answer_f
+@JsonKey(name: 'answer_a') String? answerA,@JsonKey(name: 'answer_b') String? answerB,@JsonKey(name: 'answer_c') String? answerC,@JsonKey(name: 'answer_d') String? answerD,@JsonKey(name: 'answer_e') String? answerE,@JsonKey(name: 'answer_f') String? answerF
 });
 
 
@@ -66,14 +66,14 @@ class _$AnswersCopyWithImpl<$Res>
 
 /// Create a copy of Answers
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? answer_a = freezed,Object? answer_b = freezed,Object? answer_c = freezed,Object? answer_d = freezed,Object? answer_e = freezed,Object? answer_f = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? answerA = freezed,Object? answerB = freezed,Object? answerC = freezed,Object? answerD = freezed,Object? answerE = freezed,Object? answerF = freezed,}) {
   return _then(_self.copyWith(
-answer_a: freezed == answer_a ? _self.answer_a : answer_a // ignore: cast_nullable_to_non_nullable
-as String?,answer_b: freezed == answer_b ? _self.answer_b : answer_b // ignore: cast_nullable_to_non_nullable
-as String?,answer_c: freezed == answer_c ? _self.answer_c : answer_c // ignore: cast_nullable_to_non_nullable
-as String?,answer_d: freezed == answer_d ? _self.answer_d : answer_d // ignore: cast_nullable_to_non_nullable
-as String?,answer_e: freezed == answer_e ? _self.answer_e : answer_e // ignore: cast_nullable_to_non_nullable
-as String?,answer_f: freezed == answer_f ? _self.answer_f : answer_f // ignore: cast_nullable_to_non_nullable
+answerA: freezed == answerA ? _self.answerA : answerA // ignore: cast_nullable_to_non_nullable
+as String?,answerB: freezed == answerB ? _self.answerB : answerB // ignore: cast_nullable_to_non_nullable
+as String?,answerC: freezed == answerC ? _self.answerC : answerC // ignore: cast_nullable_to_non_nullable
+as String?,answerD: freezed == answerD ? _self.answerD : answerD // ignore: cast_nullable_to_non_nullable
+as String?,answerE: freezed == answerE ? _self.answerE : answerE // ignore: cast_nullable_to_non_nullable
+as String?,answerF: freezed == answerF ? _self.answerF : answerF // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -85,15 +85,15 @@ as String?,
 @JsonSerializable()
 
 class _Answers implements Answers {
-  const _Answers({required this.answer_a, required this.answer_b, required this.answer_c, required this.answer_d, required this.answer_e, required this.answer_f});
+  const _Answers({@JsonKey(name: 'answer_a') required this.answerA, @JsonKey(name: 'answer_b') required this.answerB, @JsonKey(name: 'answer_c') required this.answerC, @JsonKey(name: 'answer_d') required this.answerD, @JsonKey(name: 'answer_e') required this.answerE, @JsonKey(name: 'answer_f') required this.answerF});
   factory _Answers.fromJson(Map<String, dynamic> json) => _$AnswersFromJson(json);
 
-@override final  String? answer_a;
-@override final  String? answer_b;
-@override final  String? answer_c;
-@override final  String? answer_d;
-@override final  String? answer_e;
-@override final  String? answer_f;
+@override@JsonKey(name: 'answer_a') final  String? answerA;
+@override@JsonKey(name: 'answer_b') final  String? answerB;
+@override@JsonKey(name: 'answer_c') final  String? answerC;
+@override@JsonKey(name: 'answer_d') final  String? answerD;
+@override@JsonKey(name: 'answer_e') final  String? answerE;
+@override@JsonKey(name: 'answer_f') final  String? answerF;
 
 /// Create a copy of Answers
 /// with the given fields replaced by the non-null parameter values.
@@ -108,16 +108,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Answers&&(identical(other.answer_a, answer_a) || other.answer_a == answer_a)&&(identical(other.answer_b, answer_b) || other.answer_b == answer_b)&&(identical(other.answer_c, answer_c) || other.answer_c == answer_c)&&(identical(other.answer_d, answer_d) || other.answer_d == answer_d)&&(identical(other.answer_e, answer_e) || other.answer_e == answer_e)&&(identical(other.answer_f, answer_f) || other.answer_f == answer_f));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Answers&&(identical(other.answerA, answerA) || other.answerA == answerA)&&(identical(other.answerB, answerB) || other.answerB == answerB)&&(identical(other.answerC, answerC) || other.answerC == answerC)&&(identical(other.answerD, answerD) || other.answerD == answerD)&&(identical(other.answerE, answerE) || other.answerE == answerE)&&(identical(other.answerF, answerF) || other.answerF == answerF));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,answer_a,answer_b,answer_c,answer_d,answer_e,answer_f);
+int get hashCode => Object.hash(runtimeType,answerA,answerB,answerC,answerD,answerE,answerF);
 
 @override
 String toString() {
-  return 'Answers(answer_a: $answer_a, answer_b: $answer_b, answer_c: $answer_c, answer_d: $answer_d, answer_e: $answer_e, answer_f: $answer_f)';
+  return 'Answers(answerA: $answerA, answerB: $answerB, answerC: $answerC, answerD: $answerD, answerE: $answerE, answerF: $answerF)';
 }
 
 
@@ -128,7 +128,7 @@ abstract mixin class _$AnswersCopyWith<$Res> implements $AnswersCopyWith<$Res> {
   factory _$AnswersCopyWith(_Answers value, $Res Function(_Answers) _then) = __$AnswersCopyWithImpl;
 @override @useResult
 $Res call({
- String? answer_a, String? answer_b, String? answer_c, String? answer_d, String? answer_e, String? answer_f
+@JsonKey(name: 'answer_a') String? answerA,@JsonKey(name: 'answer_b') String? answerB,@JsonKey(name: 'answer_c') String? answerC,@JsonKey(name: 'answer_d') String? answerD,@JsonKey(name: 'answer_e') String? answerE,@JsonKey(name: 'answer_f') String? answerF
 });
 
 
@@ -145,14 +145,14 @@ class __$AnswersCopyWithImpl<$Res>
 
 /// Create a copy of Answers
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? answer_a = freezed,Object? answer_b = freezed,Object? answer_c = freezed,Object? answer_d = freezed,Object? answer_e = freezed,Object? answer_f = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? answerA = freezed,Object? answerB = freezed,Object? answerC = freezed,Object? answerD = freezed,Object? answerE = freezed,Object? answerF = freezed,}) {
   return _then(_Answers(
-answer_a: freezed == answer_a ? _self.answer_a : answer_a // ignore: cast_nullable_to_non_nullable
-as String?,answer_b: freezed == answer_b ? _self.answer_b : answer_b // ignore: cast_nullable_to_non_nullable
-as String?,answer_c: freezed == answer_c ? _self.answer_c : answer_c // ignore: cast_nullable_to_non_nullable
-as String?,answer_d: freezed == answer_d ? _self.answer_d : answer_d // ignore: cast_nullable_to_non_nullable
-as String?,answer_e: freezed == answer_e ? _self.answer_e : answer_e // ignore: cast_nullable_to_non_nullable
-as String?,answer_f: freezed == answer_f ? _self.answer_f : answer_f // ignore: cast_nullable_to_non_nullable
+answerA: freezed == answerA ? _self.answerA : answerA // ignore: cast_nullable_to_non_nullable
+as String?,answerB: freezed == answerB ? _self.answerB : answerB // ignore: cast_nullable_to_non_nullable
+as String?,answerC: freezed == answerC ? _self.answerC : answerC // ignore: cast_nullable_to_non_nullable
+as String?,answerD: freezed == answerD ? _self.answerD : answerD // ignore: cast_nullable_to_non_nullable
+as String?,answerE: freezed == answerE ? _self.answerE : answerE // ignore: cast_nullable_to_non_nullable
+as String?,answerF: freezed == answerF ? _self.answerF : answerF // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

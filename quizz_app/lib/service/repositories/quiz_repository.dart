@@ -3,7 +3,7 @@ import 'package:quizz_app/models/categories_model/category_model.dart';
 import 'package:quizz_app/models/quiz_model/quiz_model.dart';
 import 'package:quizz_app/service/api/api.dart';
 
-final class Repository {
+final class QuizRepository {
   final Dio dio = Dio();
 
   Future<List<CategoryModel>> getCategories() async {
@@ -15,9 +15,9 @@ final class Repository {
     }
   }
 
-  Future<List<QuizModel>> getQuestions() async {
+  Future<List<QuizModel>> getQuestionsByCategory(String category, int numberOfQuestions) async {
     try {
-      final response = await QuizApiClient(dio).getQuestions();
+      final response = await QuizApiClient(dio).getQuestionsByCategory(category, numberOfQuestions);
       return response;
     } catch (e) {
       rethrow;

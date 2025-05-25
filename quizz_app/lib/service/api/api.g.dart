@@ -29,7 +29,7 @@ class _QuizApiClient implements QuizApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/categories?apiKey=u1ksN1V658CdtorFPrHpNg6x6k2X2fabi0nOZ21S',
+            '/categories?apiKey=TD0I5iIjyc3Xm7sOj0XiipUr1VZZjdo7fkenEQGX',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -53,16 +53,22 @@ class _QuizApiClient implements QuizApiClient {
   }
 
   @override
-  Future<List<QuizModel>> getQuestions() async {
+  Future<List<QuizModel>> getQuestionsByCategory(
+    String category,
+    int limit,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'category': category,
+      r'limit': limit,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<List<QuizModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/questions?apiKey=u1ksN1V658CdtorFPrHpNg6x6k2X2fabi0nOZ21S&category=Linux&limit=3',
+            '/questions?apiKey=TD0I5iIjyc3Xm7sOj0XiipUr1VZZjdo7fkenEQGX',
             queryParameters: queryParameters,
             data: _data,
           )
