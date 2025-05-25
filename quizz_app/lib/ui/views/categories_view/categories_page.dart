@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizz_app/models/categories_model/category_model.dart';
-import 'package:quizz_app/service/repositories/repository.dart';
+import 'package:quizz_app/service/repositories/quiz_repository.dart';
 
 class CategoriesView extends StatefulWidget {
   const CategoriesView({super.key});
@@ -11,7 +11,7 @@ class CategoriesView extends StatefulWidget {
 }
 
 class _CategoriesViewState extends State<CategoriesView> {
-  final futureList = Repository().getCategories();
+  final futureList = QuizRepository().getCategories();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,12 @@ class _CategoriesViewState extends State<CategoriesView> {
                 itemBuilder: (context, index) {
                   CategoryModel category = snapshot.data![index];
                   return GestureDetector(
-                    onTap: () => context.push('/questions'),
+                    onTap: () {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        String currentCategory = snapshot.data![index].name;
+                        context.push('/questions', extra: currentCategory);
+                      }
+                    },
                     child: ListTile(
                       title: Text('${category.id}'),
                       subtitle: Text(category.name),

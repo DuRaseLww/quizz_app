@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizz_app/models/user_model/user.dart';
+import 'package:quizz_app/service/auth_service/auth_service.dart';
 import 'package:quizz_app/service/formatter/formatter.dart';
 import '../../service/media_query/media_query_service.dart';
 
@@ -35,8 +35,37 @@ class _FormRegisterState extends State<FormRegister>
       _emailController.text,
       _passwordController.text,
     )) {
-      UserModel(_emailController.text, _passwordController.text).createUser();
+      AuthServiceImpl().createUser(
+        _emailController.text,
+        _passwordController.text,
+      );
     }
+  }
+
+  String? validationMail(String value) {
+    if (_formatter.mailIsEmpty(value)) {
+      return 'Введите email!';
+    }
+
+    if (_formatter.isCorrectMailFormat(value) == false) {
+      return 'Введите корректный email!';
+    }
+    return null;
+  }
+
+  String? validationPassword(String password) {
+    if (_formatter.passwordIsEmpty(password)) {
+      return 'Введите пароль!';
+    }
+
+    if (!_formatter.isCorrectPasswordLength(password)) {
+      return 'Пароль должен содержать 8-16 символов!';
+    }
+
+    if (_formatter.isCorrectPasswordFormat(password) == false) {
+      return r'Пароль должен содержать латинские буквы и цирфы!';
+    }
+    return null;
   }
 
   @override
@@ -53,12 +82,7 @@ class _FormRegisterState extends State<FormRegister>
             child: Column(
               children: [
                 SizedBox(height: 50),
-                const Text(
-                  'Регистрация',
-                  style: TextStyle(
-                      fontSize: 24
-                  ),
-                ),
+                const Text('Регистрация', style: TextStyle(fontSize: 24)),
                 SizedBox(height: 50),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -69,16 +93,7 @@ class _FormRegisterState extends State<FormRegister>
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                   ),
-                  validator: (value) {
-                    if (_formatter.mailIsEmpty(value!)) {
-                      return 'Введите email!';
-                    }
-
-                    if (_formatter.isCorrectMailFormat(value) == false) {
-                      return 'Введите корректный email!';
-                    }
-                    return null;
-                  },
+                  validator: (value) => validationMail(value!),
                   onFieldSubmitted: (value) => _submitForm(),
                 ),
                 SizedBox(height: 20),
@@ -91,20 +106,7 @@ class _FormRegisterState extends State<FormRegister>
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                   ),
-                  validator: (value) {
-                    if (_formatter.passwordIsEmpty(value!)) {
-                      return 'Введите пароль!';
-                    }
-
-                    if (!_formatter.isCorrectPasswordLength(value)) {
-                      return 'Пароль должен содержать 8-16 символов!';
-                    }
-
-                    if (_formatter.isCorrectPasswordFormat(value) == false) {
-                      return r'Пароль должен содержать латинские буквы и цирфы!';
-                    }
-                    return null;
-                  },
+                  validator: (value) => validationPassword(value!),
                   onFieldSubmitted: (value) => _submitForm(),
                 ),
                 SizedBox(height: 20),
@@ -112,14 +114,14 @@ class _FormRegisterState extends State<FormRegister>
                   onPressed: () {
                     _registration();
 
-                    FirebaseAuth.instance
-                        .authStateChanges()
-                        .listen((User? user) {
+                    FirebaseAuth.instance.authStateChanges().listen((
+                      User? user,
+                    ) {
                       if (user == null) {
-                        print('User is currently signed out!');
+                        debugPrint('User is currently signed out!');
                       } else {
                         context.push('/start');
-                        print('User is signed in!');
+                        debugPrint('User is signed in!');
                       }
                     });
                   },

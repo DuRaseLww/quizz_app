@@ -11,9 +11,12 @@ abstract class QuizApiClient {
       Dio dio,
       {String? baseUrl}) = _QuizApiClient;
 
-  @GET('/categories?apiKey=u1ksN1V658CdtorFPrHpNg6x6k2X2fabi0nOZ21S')
+  @GET('/categories?apiKey=TD0I5iIjyc3Xm7sOj0XiipUr1VZZjdo7fkenEQGX')
   Future<List<CategoryModel>> getCategories();
 
-  @GET('/questions?apiKey=u1ksN1V658CdtorFPrHpNg6x6k2X2fabi0nOZ21S&category=Linux&limit=3')
-  Future<List<QuizModel>> getQuestions();
+  @GET('/questions?apiKey=TD0I5iIjyc3Xm7sOj0XiipUr1VZZjdo7fkenEQGX')
+  Future<List<QuizModel>> getQuestionsByCategory(
+      @Query('category') String category,
+      @Query('limit') int limit,
+      );
 }
